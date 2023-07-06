@@ -1,5 +1,5 @@
 import "/home/mergestack/Desktop/Fakhar Training/React/React Hook Form/my-redux-hook-form-app/src/index.css";
-import App from "/home/mergestack/Desktop/Fakhar Training/React/React Hook Form/my-redux-hook-form-app/src/App.js";
+import App from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup => Ts/my-redux-hook-form-ts-app/src/App";
 import React from "react";
 import { render } from "@testing-library/react";
 
