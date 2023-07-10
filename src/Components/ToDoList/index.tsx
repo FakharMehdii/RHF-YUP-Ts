@@ -1,7 +1,7 @@
-import InputFieldContainer from "../../Containers/inputFieldContainer";
+import InputFieldContainer from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/Containers/inputFieldContainer";
 
-import { Task } from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/store/reducers/interface";
-import { TaskMapper } from "../TaskMapper";
+import { Task } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/store/reducers/interface";
+import { TaskMapper } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/Components/TaskMapper";
 
 export interface TodoListProps {
   tasks: Task[];

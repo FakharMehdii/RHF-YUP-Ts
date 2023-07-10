@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Task } from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/store/reducers/interface";
+import { Task } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/store/reducers/interface";
 import { ChangeEvent, KeyboardEvent } from "react";
 
 interface Props {

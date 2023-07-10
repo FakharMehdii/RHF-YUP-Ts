@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { schema } from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/Components/InputField/schema";
+import { schema } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/Components/InputField/schema";
 
 interface Props {
   addTodo: (value: any) => void;

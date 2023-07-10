@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware } from "redux";
-import rootReducer from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/store/reducers";
+import rootReducer from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/store/reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import createSagaMiddleware from "redux-saga";
-import rootSaga from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/sagas";
+import rootSaga from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(

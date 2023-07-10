@@ -1,6 +1,5 @@
-import ToDoTaskContainer from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/Containers/todoTaskContainer";
-import { Task } from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/store/reducers/interface";
-import React from "react";
+import ToDoTaskContainer from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/Containers/todoTaskContainer";
+import { Task } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/store/reducers/interface";
 
 export interface Props {
   tasks: Task[];

@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
-import { ToDoTask } from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/Components/ToDoTask";
-import { editTodo } from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/store/actions";
-import { removeTodo } from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/store/actions";
-import { Task } from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/store/reducers/interface";
+import { ToDoTask } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/Components/ToDoTask";
+import { editTodo } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/store/actions";
+import { removeTodo } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/store/actions";
+import { Task } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/store/reducers/interface";
 
 interface Props {
   task: Task;

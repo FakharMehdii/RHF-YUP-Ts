@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { InputField } from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/Components/InputField";
-import { addTodo } from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/store/actions";
+import { InputField } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/Components/InputField";
+import { addTodo } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/store/actions";
 
 
 const InputFieldContainer = () => {
