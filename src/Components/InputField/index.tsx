@@ -1,50 +1,38 @@
-import React from "react";
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { schema } from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/Components/InputField/schema";
 
-const schema = yup.object().shape({
-  taskTittle: yup
-    .string()
-    .required()
-    .max(35, "Task Tittle can contain 35 character only.")
-    .min(3, "Task Tittle should be at least 3 characters long.")
-    .trim()
-    .test(
-      "non-numerical",
-      "NUMBERS NOT ALLOWED!!! Kindly Write numbers in alphabets...",
-      (value) => {
-        value = value.split("");
-        return !value.some((character) => character >= "0" && character <= "9");
-      }
-    ),
-});
+interface Props {
+  addTodo: (value: any) => void;
+}
 
-export const InputField = ({ addTodo }) => {
+
+export const InputField = ({ addTodo }: Props) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
+    watch,
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmitHandler = (data) => {
-    addTodo(data);
+  const onSubmitHandler = (taskName: any) => {
+    addTodo(taskName);
     reset();
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmitHandler)}>
       <input
-        {...register("taskTittle")}
+        {...register("taskTitle")}
         type="text"
         className="input"
         placeholder="Input task name and then tab enter to add"
         autoFocus
         required
       />
-      {errors.taskTittle && (
-        <p className="errorMessage"> {errors.taskTittle.message}</p>
+      {errors.taskTitle && (
+        <p className="errorMessage"> {errors.taskTitle.message}</p>
       )}
     </form>
   );

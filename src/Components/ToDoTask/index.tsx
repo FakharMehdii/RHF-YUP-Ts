@@ -1,6 +1,14 @@
 import { useState } from "react";
+import { Task } from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/store/reducers/interface";
+import { ChangeEvent, KeyboardEvent } from "react";
 
-export function ToDoTask({ task, editTodo, removeTodo }) {
+interface Props {
+  task: Task;
+  editTodo: (task: Task) => void;
+  removeTodo: (task: Task) => void;
+}
+
+export function ToDoTask({ task, editTodo, removeTodo }: Props) {
   const [done, setDone] = useState(false);
   const [edit, setEdit] = useState(false);
   const [inputValue, setInputValue] = useState("");
@@ -10,14 +18,14 @@ export function ToDoTask({ task, editTodo, removeTodo }) {
     setEdit(true);
   };
 
-  const handleEditChange = (event) => {
+  const handleEditChange = (event: ChangeEvent<HTMLInputElement>) => {
     setTaskName(event.target.value);
     setInputValue(event.target.value);
   };
 
-  const handleEditKeyPress = (event) => {
+  const handleEditKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter" && inputValue !== "") {
-      const updatedElement = { ...task, name: taskName };
+      const updatedElement = { ...task, taskTitle: taskName };
       setEdit(false);
       editTodo(updatedElement);
     }
@@ -31,7 +39,7 @@ export function ToDoTask({ task, editTodo, removeTodo }) {
           <input
             className="checkbox"
             type="text"
-            value={inputValue ? inputValue : task.taskTittle}
+            value={inputValue ? inputValue : task.taskTitle}
             onChange={handleEditChange}
             onKeyDown={handleEditKeyPress}
             autoFocus
@@ -46,9 +54,7 @@ export function ToDoTask({ task, editTodo, removeTodo }) {
               event.target.checked ? setDone(true) : setDone(false);
             }}
           />{" "}
-          <span className={done ? "strike" : "normal"}>
-            {inputValue === "" ? task.taskTittle : inputValue}
-          </span>{" "}
+          <span className={done ? "strike" : "normal"}>{task.taskTitle}</span>{" "}
         </div>
       )}
       <div>

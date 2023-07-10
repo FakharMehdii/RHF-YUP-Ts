@@ -1,46 +1,52 @@
 import axios from "axios";
 import { takeEvery, call, all, put } from "redux-saga/effects";
-import { addTodoInStore } from "/home/mergestack/Desktop/Fakhar Training/React/React Hook Form/my-redux-hook-form-app/src/store/actions/index";
+import { addTodoInStore } from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/store/actions";
 
-function* createTodoSaga(action) {
+interface Action {
+  type: string;
+  payload: { _id: string; taskTitle: string };
+}
+interface addAction {
+  type: string;
+  payload: { taskTitle: string };
+}
+function* createTodoSaga(action: addAction): Generator {
   try {
-    const crudUrl = process.env.REACT_APP_CRUD_ENDPOINT_URL;
-    const response = yield call(axios.post, crudUrl, action.payload, {});
+    const crudUrl = process.env.REACT_APP_CRUD_ENDPOINT_URL || "";
+    const response: any = yield call(axios.post, crudUrl, action.payload);
     yield call(updateStore);
   } catch (error) {
     console.error(error);
   }
 }
 
-function* updateStore() {
+function* updateStore(): Generator {
   try {
-    const crudUrl = process.env.REACT_APP_CRUD_ENDPOINT_URL;
-    const response = yield call(axios.get, crudUrl);
+    const crudUrl = process.env.REACT_APP_CRUD_ENDPOINT_URL || "";
+    const response: any = yield call(axios.get, crudUrl);
     yield put(addTodoInStore(response.data));
   } catch (error) {
     console.error(error);
   }
 }
 
-function* removeTodoSaga(action) {
+function* removeTodoSaga(action: Action): Generator {
   try {
     let crudUrl = process.env.REACT_APP_CRUD_ENDPOINT_URL;
     crudUrl = crudUrl + "/" + action.payload._id;
-    const response = yield call(axios.delete, crudUrl);
-    yield call(updateStore);
+    const response: any = yield call(axios.delete, crudUrl);
   } catch (error) {
     console.error(error);
   }
 }
 
-function* editTodoSaga(action) {
+function* editTodoSaga(action: Action): Generator {
   try {
     let crudUrl = process.env.REACT_APP_CRUD_ENDPOINT_URL;
     crudUrl = crudUrl + "/" + action.payload._id;
-    const response = yield call(axios.put, crudUrl, {
-      name: action.payload.name,
+    const response: any = yield call(axios.put, crudUrl, {
+      taskTitle: action.payload.taskTitle,
     });
-    yield call(updateStore);
   } catch (error) {
     console.error(error);
   }

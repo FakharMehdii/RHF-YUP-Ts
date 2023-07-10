@@ -1,24 +1,8 @@
+import { list } from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/store/reducers/listReducer";
 import { combineReducers } from "redux";
 
-const initialState = {
-  tasks: [],
-};
-
-const list = (state = initialState, action) => {
-  switch (action.type) {
-    case "ADD_TODO_STORE": {
-      return {
-        ...state,
-        tasks: action.payload,
-      };
-    }
-    default:
-      return state;
-  }
-};
-
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
   list,
 });
-
+export type RootState = ReturnType<typeof rootReducer>;
 export default rootReducer;

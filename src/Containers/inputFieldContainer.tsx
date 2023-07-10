@@ -1,10 +1,11 @@
 import { useDispatch } from "react-redux";
-import { InputField } from "/home/mergestack/Desktop/Fakhar Training/React/React Hook Form/my-redux-hook-form-app/src/Components/InputField/index";
-import { addTodo } from "/home/mergestack/Desktop/Fakhar Training/React/React Hook Form/my-redux-hook-form-app/src/store/actions/index";
+import { InputField } from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/Components/InputField";
+import { addTodo } from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/store/actions";
+
 
 const InputFieldContainer = () => {
   const dispatch = useDispatch();
-  const addTodoHandler = (value) => {
+  const addTodoHandler = (value: any) => {
     dispatch(addTodo(value));
   };
   return <InputField addTodo={addTodoHandler} />;

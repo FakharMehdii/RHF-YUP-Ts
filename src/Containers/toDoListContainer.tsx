@@ -1,13 +1,16 @@
 import { useSelector, useDispatch } from "react-redux";
-import { ToDoList } from "/home/mergestack/Desktop/Fakhar Training/React/React Hook Form/my-redux-hook-form-app/src/Components/ToDoList/index";
+import { ToDoList } from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/Components/ToDoList";
 import { useEffect } from "react";
+import { RootState } from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/store/reducers";
+import { startApp } from "/home/mergestack/Desktop/Fakhar Training/React/typescript project/my-app/src/store/actions";
 
 const ToDoListContainer = () => {
+  const tasks = useSelector((state: RootState) => state.list.tasks);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch({ type: "START_APP" });
+    dispatch(startApp());
   }, []);
-  const tasks = useSelector((state) => state.list.tasks);
+
   return <ToDoList tasks={tasks} />;
 };
 
