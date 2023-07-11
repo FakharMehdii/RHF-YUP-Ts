@@ -6,10 +6,9 @@ import { ITask } from "src/interfaces";
 
 interface IToDoTaskContainerProps {
   task: ITask;
-  key: number
 }
 
-const ToDoTaskContainer = ({ task, key }: IToDoTaskContainerProps) => {
+const ToDoTaskContainer = ({ task }: IToDoTaskContainerProps) => {
   const dispatch = useDispatch();
 
   const editTodoHandler = (task: ITask) => {
@@ -24,7 +23,6 @@ const ToDoTaskContainer = ({ task, key }: IToDoTaskContainerProps) => {
       task={task}
       editTodo={editTodoHandler}
       removeTodo={removeTodoHandler}
-      key={key}
     />
   );
 };

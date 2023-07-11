@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ITask } from "src/interfaces";
 import { useForm } from "react-hook-form";
-import { ChangeEvent } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "src/Components/validationSchema";
 
@@ -9,32 +8,28 @@ interface IToDoTaskProps {
   task: ITask;
   editTodo: (task: ITask) => void;
   removeTodo: (task: ITask) => void;
-  key: number;
 }
 
-export function ToDoTask({ task, editTodo, removeTodo, key }: IToDoTaskProps) {
+export function ToDoTask({ task, editTodo, removeTodo }: IToDoTaskProps) {
   const [done, setDone] = useState(false);
   const [edit, setEdit] = useState(false);
-  const [inputValue, setInputValue] = useState("");
 
   const handleEdit = () => {
     setEdit(true);
-  };
-
-  const handleEditChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
   };
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmitHandler = () => {
-    const updatedElement = { ...task, taskTitle: inputValue };
-
+  const onSubmitHandler = (taskName: { taskTitle: string }) => {
+    const updatedElement = { ...task, taskTitle: taskName.taskTitle };
+    reset();
     setEdit(false);
+
     editTodo(updatedElement);
   };
 
@@ -45,8 +40,7 @@ export function ToDoTask({ task, editTodo, removeTodo, key }: IToDoTaskProps) {
           <input
             {...register("taskTitle")}
             type="text"
-            value={inputValue ? inputValue : task.taskTitle}
-            onChange={handleEditChange}
+            defaultValue={task.taskTitle}
             autoFocus
           />
           {errors.taskTitle && (
