@@ -29,7 +29,6 @@ export function ToDoTask({ task, editTodo, removeTodo }: IToDoTaskProps) {
     const updatedElement = { ...task, taskTitle: taskName.taskTitle };
     reset();
     setEdit(false);
-
     editTodo(updatedElement);
   };
 
@@ -42,9 +41,10 @@ export function ToDoTask({ task, editTodo, removeTodo }: IToDoTaskProps) {
             type="text"
             defaultValue={task.taskTitle}
             autoFocus
+            required
           />
           {errors.taskTitle && (
-            <p className="errorMessage">{errors.taskTitle.message}</p>
+            <p className="errorMessage"> {errors.taskTitle.message}</p>
           )}
         </form>
       ) : (
