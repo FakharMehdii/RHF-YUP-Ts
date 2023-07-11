@@ -33,6 +33,7 @@ export function ToDoTask({ task, editTodo, removeTodo, key }: IToDoTaskProps) {
 
   const onSubmitHandler = () => {
     const updatedElement = { ...task, taskTitle: inputValue };
+
     setEdit(false);
     editTodo(updatedElement);
   };

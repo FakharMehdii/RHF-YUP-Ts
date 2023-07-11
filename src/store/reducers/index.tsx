@@ -1,4 +1,3 @@
-//import { list } from "src/store/reducers/listReducer";
 import { list } from "src/store/reducers/listReducer";
 import { combineReducers } from "redux";
 
