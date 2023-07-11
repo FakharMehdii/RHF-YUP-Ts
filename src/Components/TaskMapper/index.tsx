@@ -9,7 +9,7 @@ export const TaskMapper = ({ tasks }: ITaskMapperProps) => {
   return (
     <>
       {tasks.length > 0 &&
-        tasks.map((task, index) => <ToDoTaskContainer task={task} />)}
+        tasks.map((task, index) => <ToDoTaskContainer task={task} key={index} />)}
     </>
   );
 };

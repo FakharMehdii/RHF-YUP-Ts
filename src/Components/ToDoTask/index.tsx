@@ -9,9 +9,10 @@ interface IToDoTaskProps {
   task: ITask;
   editTodo: (task: ITask) => void;
   removeTodo: (task: ITask) => void;
+  key: number;
 }
 
-export function ToDoTask({ task, editTodo, removeTodo }: IToDoTaskProps) {
+export function ToDoTask({ task, editTodo, removeTodo, key }: IToDoTaskProps) {
   const [done, setDone] = useState(false);
   const [edit, setEdit] = useState(false);
   const [inputValue, setInputValue] = useState("");
