@@ -1,8 +1,8 @@
-import { useSelector, useDispatch } from "react-redux";
-import { ToDoList } from "src/Components/ToDoList";
 import { useEffect } from "react";
-import { RootState } from "src/store/reducers";
 import { startApp } from "src/store/actions";
+import { RootState } from "src/store/reducers";
+import { ToDoList } from "src/Components/ToDoList";
+import { useSelector, useDispatch } from "react-redux";
 
 const ToDoListContainer = () => {
   const tasks = useSelector((state: RootState) => state.list.tasks);

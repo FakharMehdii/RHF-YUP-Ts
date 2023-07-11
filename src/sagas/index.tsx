@@ -1,6 +1,6 @@
 import axios from "axios";
-import { takeEvery, call, all, put } from "redux-saga/effects";
 import { addTodoInStore } from "src/store/actions";
+import { takeEvery, call, all, put } from "redux-saga/effects";
 
 interface IAction {
   type: string;

@@ -1,6 +1,6 @@
 import "src/index.css";
-import ToDoApp from "src/App";
 import React from "react";
+import ToDoApp from "src/App";
 import ReactDOM from "react-dom/client";
 
 const root = ReactDOM.createRoot(

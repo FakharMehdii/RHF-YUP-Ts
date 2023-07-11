@@ -1,8 +1,8 @@
+import { ITask } from "src/interfaces";
 import { useDispatch } from "react-redux";
-import { ToDoTask } from "src/Components/ToDoTask";
 import { editTodo } from "src/store/actions";
 import { removeTodo } from "src/store/actions";
-import { ITask } from "src/interfaces";
+import { ToDoTask } from "src/Components/ToDoTask";
 
 interface IToDoTaskContainerProps {
   task: ITask;

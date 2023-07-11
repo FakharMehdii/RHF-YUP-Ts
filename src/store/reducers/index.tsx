@@ -1,5 +1,5 @@
-import { list } from "src/store/reducers/listReducer";
 import { combineReducers } from "redux";
+import { list } from "src/store/reducers/listReducer";
 
 export const rootReducer = combineReducers({
   list,

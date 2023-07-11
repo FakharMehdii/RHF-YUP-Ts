@@ -1,5 +1,5 @@
-import { ListState } from "src/store/reducers/interface";
 import { Reducer } from "redux";
+import { ListState } from "src/store/reducers/interface";
 import { ListActionTypes } from "src/store/reducers/interface";
 
 const initialState: ListState = {

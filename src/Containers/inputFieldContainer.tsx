@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { InputField } from "src/Components/InputField";
 import { addTodo } from "src/store/actions";
+import { InputField } from "src/Components/InputField";
 
 const InputFieldContainer = () => {
   const dispatch = useDispatch();
