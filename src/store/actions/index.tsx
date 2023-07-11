@@ -1,37 +1,37 @@
-import { Task } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/store/reducers/interface";
+import { ITask } from "src/interfaces";
 export const ADD_TODO = "ADD_TODO";
 export const EDIT_TODO = "EDIT_TODO";
 export const REMOVE_TODO = "REMOVE_TODO";
-export const ADD_TODO_STORE = "ADD_TODO_STORE";
+export const UPDATE_STORE = "UPDATE_STORE";
 
 export const startApp = () => {
   return {
-    type:"START_APP",
-  }
-}
+    type: "START_APP",
+  };
+};
 
-export const addTodo = (todo: string) => {
+export const addTodo = (todo: { taskTitle: string }) => {
   return {
     type: ADD_TODO,
     payload: todo,
   };
 };
 
-export const addTodoInStore = (todo: Task) => {
+export const addTodoInStore = (todo: ITask) => {
   return {
-    type: ADD_TODO_STORE,
+    type: UPDATE_STORE,
     payload: todo,
   };
 };
 
-export const removeTodo = (todo: Task) => {
+export const removeTodo = (todo: ITask) => {
   return {
     type: REMOVE_TODO,
     payload: todo,
   };
 };
 
-export const editTodo = (todo: Task) => {
+export const editTodo = (todo: ITask) => {
   return {
     type: EDIT_TODO,
     payload: todo,

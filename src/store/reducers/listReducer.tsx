@@ -1,7 +1,6 @@
-import { ListState } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/store/reducers/interface";
+import { ListState } from "src/store/reducers/interface";
 import { Reducer } from "redux";
-import { ListActionTypes } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/store/reducers/interface";
-
+import { ListActionTypes } from "src/store/reducers/interface";
 
 const initialState: ListState = {
   tasks: [],
@@ -12,7 +11,7 @@ export const list: Reducer<ListState, ListActionTypes> = (
   action
 ) => {
   switch (action.type) {
-    case "ADD_TODO_STORE": {
+    case "UPDATE_STORE": {
       return {
         ...state,
         tasks: action.payload,
@@ -25,6 +24,11 @@ export const list: Reducer<ListState, ListActionTypes> = (
           task.taskTitle = action.payload.taskTitle;
       });
       return { ...state, tasks: updatedTasks };
+    }
+    case "ADD_TODO": {
+      return {
+        tasks: [...state.tasks, action.payload],
+      };
     }
     case "REMOVE_TODO": {
       const updatedTasks = state.tasks.filter(

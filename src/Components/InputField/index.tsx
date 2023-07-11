@@ -1,22 +1,20 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { schema } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/Components/InputField/schema";
+import { schema } from "src/Components/validationSchema";
 
-interface Props {
-  addTodo: (value: any) => void;
+interface IInputFieldProps {
+  addTodo: (value: { taskTitle: string }) => void;
 }
 
-
-export const InputField = ({ addTodo }: Props) => {
+export const InputField = ({ addTodo }: IInputFieldProps) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-    watch,
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmitHandler = (taskName: any) => {
+  const onSubmitHandler = (taskName: { taskTitle: string }) => {
     addTodo(taskName);
     reset();
   };

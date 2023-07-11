@@ -1,20 +1,19 @@
 import axios from "axios";
 import { takeEvery, call, all, put } from "redux-saga/effects";
-import { addTodoInStore } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/store/actions";
+import { addTodoInStore } from "src/store/actions";
 
-interface Action {
+interface IAction {
   type: string;
   payload: { _id: string; taskTitle: string };
 }
-interface addAction {
+interface IAddAction {
   type: string;
   payload: { taskTitle: string };
 }
-function* createTodoSaga(action: addAction): Generator {
+function* createTodoSaga(action: IAddAction): Generator {
   try {
     const crudUrl = process.env.REACT_APP_CRUD_ENDPOINT_URL || "";
-    const response: any = yield call(axios.post, crudUrl, action.payload);
-    yield call(updateStore);
+    const response = yield call(axios.post, crudUrl, action.payload);
   } catch (error) {
     console.error(error);
   }
@@ -30,7 +29,7 @@ function* updateStore(): Generator {
   }
 }
 
-function* removeTodoSaga(action: Action): Generator {
+function* removeTodoSaga(action: IAction): Generator {
   try {
     let crudUrl = process.env.REACT_APP_CRUD_ENDPOINT_URL;
     crudUrl = crudUrl + "/" + action.payload._id;
@@ -40,11 +39,11 @@ function* removeTodoSaga(action: Action): Generator {
   }
 }
 
-function* editTodoSaga(action: Action): Generator {
+function* editTodoSaga(action: IAction): Generator {
   try {
     let crudUrl = process.env.REACT_APP_CRUD_ENDPOINT_URL;
     crudUrl = crudUrl + "/" + action.payload._id;
-    const response: any = yield call(axios.put, crudUrl, {
+    const response = yield call(axios.put, crudUrl, {
       taskTitle: action.payload.taskTitle,
     });
   } catch (error) {

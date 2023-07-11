@@ -1,13 +1,10 @@
-import "./App.css";
-//import store from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/store/index";
-import store from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/store/index";
-import Homepage from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/Components/Homepage";
+import "src/App.css";
+import store from "src/store/index";
 import { Provider } from "react-redux";
+import Homepage from "src/Components/Homepage";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-//import  Homepage from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/Components/Homepage/index";
-import React from "react";
 
-const App = () => {
+const ToDoApp = () => {
   return (
     <Provider store={store}>
       <Homepage />
@@ -15,4 +12,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default ToDoApp;

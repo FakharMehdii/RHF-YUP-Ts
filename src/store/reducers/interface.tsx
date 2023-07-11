@@ -1,24 +1,30 @@
+import { ITask } from "src/interfaces";
+
 export interface ListState {
-  tasks: Task[];
+  tasks: ITask[];
 }
 
-export interface Task {
-  _id: string;
-  taskTitle: string;
+export interface IAddTodoAction {
+  type: "ADD_TODO";
+  payload: ITask;
 }
 
-export interface AddTodoAction {
-  type: "ADD_TODO_STORE";
-  payload: Task[];
+export interface IUpdateStoreAction {
+  type: "UPDATE_STORE";
+  payload: ITask[];
 }
 
-export interface EditTodoAction {
+export interface IEditTodoAction {
   type: "EDIT_TODO";
-  payload: Task;
+  payload: ITask;
 }
-export interface RemoveTodoAction {
+export interface IRemoveTodoAction {
   type: "REMOVE_TODO";
-  payload: Task;
+  payload: ITask;
 }
 
-export type ListActionTypes = AddTodoAction | EditTodoAction | RemoveTodoAction;
+export type ListActionTypes =
+  | IUpdateStoreAction
+  | IEditTodoAction
+  | IRemoveTodoAction
+  | IAddTodoAction;

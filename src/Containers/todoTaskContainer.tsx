@@ -1,25 +1,22 @@
 import { useDispatch } from "react-redux";
-import { ToDoTask } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/Components/ToDoTask";
-import { editTodo } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/store/actions";
-import { removeTodo } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/store/actions";
-import { Task } from "/home/mergestack/Desktop/Fakhar Training/React/Form + Yup to Ts/my-redux-hook-form-ts-app/src/store/reducers/interface";
+import { ToDoTask } from "src/Components/ToDoTask";
+import { editTodo } from "src/store/actions";
+import { removeTodo } from "src/store/actions";
+import { ITask } from "src/interfaces";
 
-interface Props {
-  task: Task;
+interface IToDoTaskContainerProps {
+  task: ITask;
 }
 
-
-const ToDoTaskContainer = ({task}: Props) => {
+const ToDoTaskContainer = ({ task }: IToDoTaskContainerProps) => {
   const dispatch = useDispatch();
 
-  const editTodoHandler = (task: Task) => {
+  const editTodoHandler = (task: ITask) => {
     dispatch(editTodo(task));
   };
-  const removeTodoHandler = (task: Task) => {
+  const removeTodoHandler = (task: ITask) => {
     dispatch(removeTodo(task));
   };
-
-          console.log(task);
 
   return (
     <ToDoTask
